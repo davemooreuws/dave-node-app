@@ -1,0 +1,3 @@
+name: dave-node-app
+handlers:
+- functions/*.ts
