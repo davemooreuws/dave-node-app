@@ -1,11 +1,11 @@
 import { api } from "@nitric/sdk";
 
-const helloApi = api('main');
+const helloApi = api("main");
 
 helloApi.get("/hello/:name", async (ctx) => {
-    const { name } = ctx.req.params;
+  const { name } = ctx.req.params;
 
-    ctx.res.body = `Hello ${name}`;
+  ctx.res.body = `Hello ${name} again`;
 
-    return ctx;
+  return ctx;
 });
