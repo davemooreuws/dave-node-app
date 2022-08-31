@@ -3,7 +3,15 @@ import { api } from "@nitric/sdk";
 const helloApi = api("main");
 
 helloApi.get("/hello", async (ctx) => {
-  ctx.res.json({ env: process.env, cool: 1 });
+  const envVars = {};
+
+  Object.entries(process.env).forEach(([string, value]) => {
+    if (!string.includes("NITRIC") && !string.includes("AWS")) {
+      envVars[string] = value;
+    }
+  });
+
+  ctx.res.json({ env: envVars });
 
   return ctx;
 });
