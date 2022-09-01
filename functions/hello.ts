@@ -3,7 +3,9 @@ import { api } from "@nitric/sdk";
 const helloApi = api("main");
 
 helloApi.get("/hello", async (ctx) => {
-  const envVars = {};
+  const envVars = {
+    update: 1,
+  };
 
   Object.entries(process.env).forEach(([string, value]) => {
     if (!string.includes("NITRIC") && !string.includes("AWS")) {
